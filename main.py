@@ -1,34 +1,19 @@
-import math
-from PIL import Image, ImageChops
+from typing import Union
 
-def czy_pierwsza(liczba):
-    try:
-        int(liczba)
-    except ValueError:
-        return False
-    liczba = int(liczba)
-    if liczba < 2:
-        return False
-    liczba = int(liczba)
-    for i in (range(2, int(math.sqrt(liczba)))):
-        if liczba % i == 0:
-            return False
-    return True
+from fastapi import FastAPI
+
+from is_prime import is_prime
+
+app = FastAPI()
 
 
-def inwersja_kolorow(obrazek):
-    obrazek_inw = ImageChops.invert(obrazek)
-    obrazek_inw.show()
-
-def uwierzytelnienie():
-    print()
+@app.get("/")
+def read_root():
+    return "Hello world!"
 
 
+@app.get("/prime/{number}")
+def check_number(number):
+    return is_prime(number)
 
-#print("Podaj liczbę: ")
-#number = input()
-#print(czy_pierwsza(number))
-
-#obrazek = Image.open("obrazek.jpg")
-#inwersja_kolorow(obrazek)
-
+    # return self.value is int and self.value > 1 and self.value < 9223372036854775807
