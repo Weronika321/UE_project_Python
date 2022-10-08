@@ -1,8 +1,10 @@
 from PIL import Image, ImageChops
 
-def inwersja_kolorow(obrazek):
+def invert_colors(filename):
+    obrazek = Image.open(filename)
     obrazek_inw = ImageChops.invert(obrazek)
-    obrazek_inw.show()
+    return obrazek_inw
+    # obrazek_inw.show()
     
 
 #obrazek = Image.open("obrazek.jpg")
