@@ -1,34 +1,28 @@
-import math
-from PIL import Image, ImageChops
+import os
+from fastapi import FastAPI
+from fastapi.responses import FileResponse, HTMLResponse
+from primality_test import primality_test
+from invert_colors import invert_colors
 
-def czy_pierwsza(liczba):
-    try:
-        int(liczba)
-    except ValueError:
-        return False
-    liczba = int(liczba)
-    if liczba < 2:
-        return False
-    liczba = int(liczba)
-    for i in (range(2, int(math.sqrt(liczba)))):
-        if liczba % i == 0:
-            return False
-    return True
+app = FastAPI()
 
 
-def inwersja_kolorow(obrazek):
-    obrazek_inw = ImageChops.invert(obrazek)
-    obrazek_inw.show()
+@app.get("/prime/{number}", response_class=HTMLResponse)
+def check_number(number):
+    html_content = f"""
+    <html>
+        <body>
+            <h1>{primality_test(number)}</h1>
+        </body>
+    </html>
+    """
+    return HTMLResponse(content=html_content, status_code=200)
+    
 
-def uwierzytelnienie():
-    print()
+@app.get("/picture/{filename}", response_class=FileResponse)
+def invert_image(filename):
+    img = invert_colors(os.path.abspath(filename))
+    img.save("image.jpg")
+    return os.path.abspath("image.jpg")
 
-
-
-#print("Podaj liczbę: ")
-#number = input()
-#print(czy_pierwsza(number))
-
-#obrazek = Image.open("obrazek.jpg")
-#inwersja_kolorow(obrazek)
 
