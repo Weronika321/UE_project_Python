@@ -1,16 +1,16 @@
 from fastapi import Depends, status, HTTPException
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
-import secrets, const
+import secrets, app.const
 
 
 def get_current_username(credentials: HTTPBasicCredentials = Depends(HTTPBasic())):
     current_username_bytes = credentials.username.encode("utf8")
-    correct_username_bytes = const.username
+    correct_username_bytes = app.const.username
     is_correct_username = secrets.compare_digest(
         current_username_bytes, correct_username_bytes
     )
     current_password_bytes = credentials.password.encode("utf8")
-    correct_password_bytes = const.password
+    correct_password_bytes = app.const.password
     is_correct_password = secrets.compare_digest(
         current_password_bytes, correct_password_bytes
     )
