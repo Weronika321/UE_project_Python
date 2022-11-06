@@ -16,7 +16,7 @@ api = Api(app)
 def start():
     return ""
 
-@app.get("/prime/{number}", response_class=HTMLResponse)
+@app.get("/prime/{number}")
 def check_number(number):
     # html = html_content(primality_test(number))
     return number #HTMLResponse(content=html, status_code=200)
