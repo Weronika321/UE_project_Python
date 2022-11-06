@@ -12,7 +12,7 @@ api = Api(app)
 
 
 api.add_resource(HelloWorld, "/")
-api.add_resource(PrimalityTestToAPI, "/prime/number", endpoint="prime")
+api.add_resource(PrimalityTestToAPI, "/prime/<number>")
 # api.add_resource(PrimalityTestToAPI, '/bar', endpoint='bar')
 
 # api.add_resource(Movie_to_API, "/movies")
