@@ -3,7 +3,7 @@ from flask_restful import Api
 from api.HelloWorld import HelloWorld
 from api.PrimalityTest import PrimalityTest
 from api.InvertColors import InvertColors
-from api.Authentication import Authentication
+from api.Time import Time
 
 app = Flask(__name__)
 api = Api(app)
@@ -12,7 +12,7 @@ api = Api(app)
 api.add_resource(HelloWorld, "/")
 api.add_resource(PrimalityTest, "/prime")
 api.add_resource(InvertColors, "/invert")
-api.add_resource(Authentication, "/authentication")
+api.add_resource(Time, "/time")
 
 
 if __name__ == "__main__":
