@@ -10,14 +10,14 @@ api = Api(app)
 
 
 api.add_resource(HelloWorld, "/")
-api.add_resource(PrimalityTest, "/prime")
+# api.add_resource(PrimalityTest, "/prime")
 api.add_resource(InvertColors, "/invert")
 api.add_resource(Time, "/time")
 
-@app.route('/index')
+@app.route('/prime')
 def access_param():
-    source = request.args.get('source')
-    return '''<h1>The source value is: {}</h1>'''.format(source)
+    number = request.args.get('number')
+    return f'''<h1>The source value is: {number}</h1>''' #.format(source)
 # appFlask.run(debug=True, port=5000)
 
 
