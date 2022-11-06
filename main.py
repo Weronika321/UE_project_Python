@@ -13,9 +13,9 @@ api = Api(app)
 def access_param(): # https://project-ue.herokuapp.com/
     return ''
     
-@app.route('/prime/<number>')
-def access_param(number): # https://project-ue.herokuapp.com/prime/3
-    return f'''<h1>{primality_test(escape(number))}</h1>'''
+# @app.route('/prime/<number>')
+# def access_param(number): # https://project-ue.herokuapp.com/prime/3
+#     return f'''<h1>{primality_test(escape(number))}</h1>'''
     
 @app.route('/time')
 def access_param(): # https://project-ue.herokuapp.com/time
