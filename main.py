@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_restful import Api
-from markupsafe import escape
+# from markupsafe import escape
 
 
 from app.primality_test import primality_test
