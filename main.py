@@ -5,7 +5,7 @@ from flask_restful import Api
 
 
 
-from app.primality_test import primality_test
+# from app.primality_test import primality_test
 
 
 app = Flask(__name__)
