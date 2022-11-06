@@ -71,6 +71,7 @@ blueprint = make_google_blueprint(
 )
 app.register_blueprint(blueprint, url_prefix="/login")
 
+
 @app.route("/")
 def index():
     google_data = None
