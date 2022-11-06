@@ -1,4 +1,4 @@
-from flask_restful import Resource
+from flask_restful import Resource, htmlResponse
 from app.primality_test import primality_test
 from app.html_content import html_content
 
