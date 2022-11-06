@@ -1,26 +1,26 @@
 from flask import Flask
 from flask_restful import Api
-# from markupsafe import escape
+from markupsafe import escape
 # from flask import Flask, render_template, redirect, url_for, request
 
 
 
-# from app.primality_test import primality_test
+from app.primality_test import primality_test
 
 
 app = Flask(__name__)
 api = Api(app)
 
 @app.get('/')
-def access_param(): # https://project-ue.herokuapp.com/
+def start(): # https://project-ue.herokuapp.com/
     return ''
     
-# @app.get('/prime/<number>')
-# def access_param(number): # https://project-ue.herokuapp.com/prime/3
-#     return f'''<h1>{primality_test(escape(number))}</h1>'''
+@app.get('/prime/<number>')
+def check_number(number): # https://project-ue.herokuapp.com/prime/3
+    return f'''<h1>{primality_test(escape(number))}</h1>'''
     
 @app.get('/time')
-def access_param5(): # https://project-ue.herokuapp.com/time
+def show_time(): # https://project-ue.herokuapp.com/time
     return "time"
 
 # Route for handling the login page logic
