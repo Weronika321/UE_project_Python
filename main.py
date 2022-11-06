@@ -22,7 +22,7 @@ api.add_resource(Ratings_to_API, "/ratings")
 @app.get("/prime/{number}", response_class=HTMLResponse)
 def check_number(number):
     html = html_content(primality_test(number))
-    return HTMLResponse(content=html, status_code=200)
+    return number #HTMLResponse(content=html, status_code=200)
 
 if __name__ == "__main__":
     app.run(debug=False, host="0.0.0.0")  # app.run(debug=True)
