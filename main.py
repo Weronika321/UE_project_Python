@@ -19,7 +19,7 @@ api.add_resource(Links_to_API, "/links")
 api.add_resource(Tags_to_API, "/tags")
 api.add_resource(Ratings_to_API, "/ratings")
 
-@app.get("/prime/{number}", response_class=HTMLResponse)
+@app.get("/prime/{number}")
 def check_number(number):
     html = html_content(primality_test(number))
     return number #HTMLResponse(content=html, status_code=200)
