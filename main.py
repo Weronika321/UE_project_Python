@@ -53,4 +53,4 @@ def login():
     #         error = 'Invalid Credentials. Please try again.'
     #     else:
     #         return redirect(url_for('home'))
-    return render_template('login.html')
+    return render_template(login.html)
