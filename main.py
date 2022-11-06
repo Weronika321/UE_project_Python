@@ -28,5 +28,4 @@ def login():
             return render_template('time.html')
     return render_template('login.html', error=error)
 
-app.run(debug=True)
 
