@@ -5,36 +5,24 @@ import pytz, datetime
 from app.primality_test import primality_test
 
 
-
 app = Flask(__name__)
-# api = Api(app)
 
 @app.get('/')
-def start(): # https://project-ue.herokuapp.com/
+def start():
     return ''
     
-@app.get('/prime/<number>')
-def check_number(number): # https://project-ue.herokuapp.com/prime/3
-    return f'''<h1>{primality_test(escape(number))}</h1>'''
+@app.route('/prime/<number>')
+def check_number(number):
+    return f'{primality_test(escape(number))}'
    
-@app.get('/image')
-def invert_image(): # https://project-ue.herokuapp.com/time
-    return "time" 
+@app.route('/image')
+def invert_image():
+    return "image"
     
-@app.get('/time')
-def show_time(): # https://project-ue.herokuapp.com/time
+@app.route('/time')
+def show_time():
     time = datetime.datetime.now(pytz.timezone('Europe/Warsaw')).strftime("%H:%M")
     return f"Godzina logowania: {time}"
-
-
-# from flask import Flask
-# app = Flask(__name__)
-# @app.route('/')
-# def hello_world():
-#     return 'Hello'
-# @app.route('/hello')
-# def hello_world():
-#     return 'Hello, World!'
 
 # if __name__ == '__main__':
 #     print('Starting app')
