@@ -11,5 +11,5 @@ def primality_test(number):
 
     for i in (range(2, int(math.sqrt(number)))):
         if number % i == 0:
-            return f"{number} nie jest liczbą pierwszą"
-    return f"{number} jest liczbą pierwszą"
+            return f"{number} nie jest pierwsza"
+    return f"{number} jest pierwsza"
