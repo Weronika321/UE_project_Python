@@ -23,7 +23,7 @@ def invert_image(): # https://project-ue.herokuapp.com/time
     
 @app.get('/time')
 def show_time(): # https://project-ue.herokuapp.com/time
-    time = datetime.datetime.now().strftime("%H:%M")
+    time = datetime.datetime.utcnow().strftime("%H:%M")
     return f"Godzina logowania: {time}"
 
 
