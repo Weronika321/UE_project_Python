@@ -5,7 +5,7 @@ from flask_restful import Api
 
 
 
-from app.primality_test import primality_test
+# from app.primality_test import primality_test
 
 
 app = Flask(__name__)
@@ -21,7 +21,7 @@ def access_param(): # https://project-ue.herokuapp.com/
     
 @app.get('/time')
 def access_param(): # https://project-ue.herokuapp.com/time
-    return f"time"
+    return "time"
 
 # Route for handling the login page logic
 # @app.route('/login', methods=['GET', 'POST'])
