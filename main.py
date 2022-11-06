@@ -2,8 +2,8 @@ from flask import Flask
 from flask_restful import Api
 from api.HelloWorld import HelloWorld
 from api.PrimalityTest import PrimalityTest
-from api.InvertColors import InvertColors
-from api.Authentication import Authentication
+# from api.InvertColors import InvertColors
+# from api.Authentication import Authentication
 
 app = Flask(__name__)
 api = Api(app)
@@ -11,8 +11,8 @@ api = Api(app)
 
 api.add_resource(HelloWorld, "/")
 api.add_resource(PrimalityTest, "/prime")
-api.add_resource(InvertColors, "/links")
-api.add_resource(Authentication, "/tags")
+# api.add_resource(InvertColors, "/links")
+# api.add_resource(Authentication, "/tags")
 
 
 if __name__ == "__main__":
