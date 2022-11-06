@@ -11,17 +11,17 @@ from app.primality_test import primality_test
 app = Flask(__name__)
 api = Api(app)
 
-@app.get('/')
-def start(): # https://project-ue.herokuapp.com/
-    return ''
+# @app.get('/')
+# def start(): # https://project-ue.herokuapp.com/
+#     return ''
     
-@app.get('/prime/<number>')
-def check_number(number): # https://project-ue.herokuapp.com/prime/3
-    return f'''<h1>{primality_test(escape(number))}</h1>'''
+# @app.get('/prime/<number>')
+# def check_number(number): # https://project-ue.herokuapp.com/prime/3
+#     return f'''<h1>{primality_test(escape(number))}</h1>'''
     
-@app.get('/time')
-def show_time(): # https://project-ue.herokuapp.com/time
-    return "time"
+# @app.get('/time')
+# def show_time(): # https://project-ue.herokuapp.com/time
+#     return "time"
 
 from flask import Flask
 from flask_httpauth import HTTPBasicAuth
