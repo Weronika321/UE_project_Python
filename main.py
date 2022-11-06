@@ -22,18 +22,18 @@ def check_number(number):
     return HTMLResponse(content=html, status_code=200)
 
 
-@app.get("/picture/{filename}", response_class=FileResponse)
-def invert_image(filename):
-    img = invert_colors(os.path.abspath(filename))
-    img.save(app.const.img_name)
-    return os.path.abspath(app.const.img_name)
+# @app.get("/picture/{filename}", response_class=FileResponse)
+# def invert_image(filename):
+#     img = invert_colors(os.path.abspath(filename))
+#     img.save(app.const.img_name)
+#     return os.path.abspath(app.const.img_name)
 
 
-@app.get("/auth")
-def read_current_user(username: str = Depends(get_current_username)):
-    time = datetime.datetime.now().strftime("%H:%M")
-    html = html_content(f"Godzina logowania: {time}")
-    return HTMLResponse(content=html, status_code=200)
+# @app.get("/auth")
+# def read_current_user(username: str = Depends(get_current_username)):
+#     time = datetime.datetime.now().strftime("%H:%M")
+#     html = html_content(f"Godzina logowania: {time}")
+#     return HTMLResponse(content=html, status_code=200)
 
 if __name__ == "__main__":
     app.run(debug=False, host="0.0.0.0")  # app.run(debug=True)
