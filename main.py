@@ -2,8 +2,10 @@ from flask import Flask
 from flask_restful import Api
 from markupsafe import escape
 from flask import Flask, render_template, redirect, url_for, request
+import tzlocal
 import datetime
 from app.primality_test import primality_test
+
 
 
 app = Flask(__name__)
@@ -23,7 +25,7 @@ def invert_image(): # https://project-ue.herokuapp.com/time
     
 @app.get('/time')
 def show_time(): # https://project-ue.herokuapp.com/time
-    time = datetime.datetime.utcnow().strftime("%H:%M")
+    time = tzlocal.get_localzone().localize(datetime.datetime.now()).strftime("%H:%M")
     return f"Godzina logowania: {time}"
 
 
