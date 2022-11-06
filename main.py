@@ -14,11 +14,11 @@ api.add_resource(HelloWorld, "/")
 api.add_resource(InvertColors, "/invert")
 api.add_resource(Time, "/time")
 
-@app.get('/prime')
-def access_param(): # https://project-ue.herokuapp.com/prime?number=3
-    number = request.args.get('number')
+@app.get('/prime/{number}')
+def access_param(number): # https://project-ue.herokuapp.com/prime?number=3
+    # number = request.args.get('number')
     if number is None:
-        return f"<h1>Nie podano liczby</h1>"
+        return f"Nie podano liczby"
     else:
         return f'''<h1>{primality_test(number)}</h1>'''
 
