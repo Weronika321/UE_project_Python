@@ -1,11 +1,9 @@
 from flask import Flask
 from flask_restful import Api
-# from classes.Movie_to_API import Movie_to_API
-# from classes.Links_to_API import Links_to_API
-# from classes.Tags_to_API import Tags_to_API
-# from classes.Ratings_to_API import Ratings_to_API
 from api.HelloWorld import HelloWorld
 from api.PrimalityTest import PrimalityTest
+from api.InvertColors import InvertColors
+from api.Authentication import Authentication
 
 app = Flask(__name__)
 api = Api(app)
@@ -13,9 +11,8 @@ api = Api(app)
 
 api.add_resource(HelloWorld, "/")
 api.add_resource(PrimalityTest, "/prime")
-# api.add_resource(Links_to_API, "/links")
-# api.add_resource(Tags_to_API, "/tags")
-# api.add_resource(Ratings_to_API, "/ratings")
+api.add_resource(InvertColors, "/links")
+api.add_resource(Authentication, "/tags")
 
 
 if __name__ == "__main__":
