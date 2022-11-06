@@ -20,7 +20,7 @@ def access_param(): # https://project-ue.herokuapp.com/
 #     return f'''<h1>{primality_test(escape(number))}</h1>'''
     
 @app.get('/time')
-def access_param(): # https://project-ue.herokuapp.com/time
+def access_param5(): # https://project-ue.herokuapp.com/time
     return "time"
 
 # Route for handling the login page logic
