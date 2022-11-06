@@ -22,29 +22,33 @@
 # # @app.get('/time')
 # # def show_time(): # https://project-ue.herokuapp.com/time
 # #     return "time"
-
 from flask import Flask
-from flask_httpauth import HTTPBasicAuth
-from werkzeug.security import generate_password_hash, check_password_hash
-
 app = Flask(__name__)
-auth = HTTPBasicAuth()
+@app.route('/hello')
+def hello_world():
+    return 'Hello, World!'
 
-users = {
-    "john": generate_password_hash("hello"),
-    "susan": generate_password_hash("bye")
-}
+if __name__ == '__main__':
+    print('Starting app')
+    app.run(host='0.0.0.0', debug=True, port=8080)
+    
+from flask_httpauth import HTTPBasicAuth
+auth = HTTPBasicAuth()
 
 @auth.verify_password
 def verify_password(username, password):
-    if username in users and \
-            check_password_hash(users.get(username), password):
-        return username
+    # if username in users:
+    #     return check_password_hash(users.get(username), password)
+    return True
 
-@app.route('/')
+
+user = 'jane.doe@email.com'
+pw = '1234xyz'
+# users = {
+#     user: generate_password_hash(pw)
+# }
+
+@app.route('/hello')
 @auth.login_required
-def index():
-    return "Hello, {}!".format(auth.current_user())
-
-if __name__ == "__main__":
-    app.run(debug=False, host="0.0.0.0")
+def hello_world():
+    return 'Hello, World!'
