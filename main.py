@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from markupsafe import escape
 from app.primality_test import primality_test
+from app.validation import validate
 
 
 app = Flask(__name__)
@@ -21,10 +22,11 @@ def invert_image():
 def login():
     error = None
     if request.method == 'POST':
-        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+        if validate(request.form['username'], request.form['password']):
             error = 'Invalid username or password. Please try again.'
         else:
             return render_template('time.html')
     return render_template('login.html', error=error)
 
 app.run(debug=True)
+
