@@ -23,7 +23,8 @@ def invert_image(): # https://project-ue.herokuapp.com/time
     
 @app.get('/time')
 def show_time(): # https://project-ue.herokuapp.com/time
-    return datetime.time
+    time = datetime.datetime.now().strftime("%H:%M")
+    return f"Godzina logowania: {time}"
 
 
 # from flask import Flask
