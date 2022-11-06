@@ -1,7 +1,5 @@
-from flask import Flask, render_template, redirect, url_for, request
-from flask_restful import Api
+from flask import Flask, render_template, request
 from markupsafe import escape
-import pytz, datetime
 from app.primality_test import primality_test
 
 
@@ -17,9 +15,16 @@ def check_number(number):
    
 @app.route('/image')
 def invert_image():
-    return "image"
-    
-@app.route('/time')
-def show_time():
-    time = datetime.datetime.now(pytz.timezone('Europe/Warsaw')).strftime("%H:%M")
-    return f"Time: {time}"
+    return render_template('invert.html')
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+            error = 'Invalid username or password. Please try again.'
+        else:
+            return render_template('time.html')
+    return render_template('login.html', error=error)
+
+app.run(debug=True)
