@@ -2,7 +2,7 @@ from flask import Flask
 from flask_restful import Api
 from markupsafe import escape
 from flask import Flask, render_template, redirect, url_for, request
-
+import datetime
 from app.primality_test import primality_test
 
 
@@ -16,10 +16,14 @@ def start(): # https://project-ue.herokuapp.com/
 @app.get('/prime/<number>')
 def check_number(number): # https://project-ue.herokuapp.com/prime/3
     return f'''<h1>{primality_test(escape(number))}</h1>'''
+   
+@app.get('/image')
+def invert_image(): # https://project-ue.herokuapp.com/time
+    return "time" 
     
 @app.get('/time')
 def show_time(): # https://project-ue.herokuapp.com/time
-    return "time"
+    return datetime.time
 
 
 # from flask import Flask
