@@ -6,8 +6,8 @@ from classes.Tags_to_API import Tags_to_API
 from classes.Ratings_to_API import Ratings_to_API
 from classes.HelloWorld import HelloWorld
 from fastapi.responses import FileResponse, HTMLResponse, StreamingResponse
-from app.html_content import html_content
-from app.primality_test import primality_test
+# from app.html_content import html_content
+# from app.primality_test import primality_test
 
 app = Flask(__name__)
 api = Api(app)
@@ -21,7 +21,6 @@ api.add_resource(Ratings_to_API, "/ratings")
 
 @app.get("/prime/{number}")
 def check_number(number):
-    html = html_content(primality_test(number))
     return number #HTMLResponse(content=html, status_code=200)
 
 if __name__ == "__main__":
