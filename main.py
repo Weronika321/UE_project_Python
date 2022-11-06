@@ -22,4 +22,4 @@ def invert_image():
 @app.route('/time')
 def show_time():
     time = datetime.datetime.now(pytz.timezone('Europe/Warsaw')).strftime("%H:%M")
-    return f"Godzina logowania: {time}"
+    return f"Time: {time}"
