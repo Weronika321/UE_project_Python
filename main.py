@@ -3,6 +3,7 @@ from flask_restful import Api
 from markupsafe import escape
 import pytz, datetime
 from app.primality_test import primality_test
+from flask_httpauth import HTTPBasicAuth
 
 
 app = Flask(__name__)
@@ -28,7 +29,6 @@ def show_time():
 #     print('Starting app')
 #     app.run(host='0.0.0.0', debug=True, port=8080)
     
-# from flask_httpauth import HTTPBasicAuth
 # auth = HTTPBasicAuth()
 
 # @auth.verify_password
