@@ -11,7 +11,7 @@ from flask_restful import Api
 app = Flask(__name__)
 api = Api(app)
 
-@app.route('/')
+@app.get('/')
 def access_param(): # https://project-ue.herokuapp.com/
     return ''
     
@@ -19,7 +19,7 @@ def access_param(): # https://project-ue.herokuapp.com/
 # def access_param(number): # https://project-ue.herokuapp.com/prime/3
 #     return f'''<h1>{primality_test(escape(number))}</h1>'''
     
-@app.route('/time')
+@app.get('/time')
 def access_param(): # https://project-ue.herokuapp.com/time
     return "time"
 
