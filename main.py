@@ -1,12 +1,12 @@
 from flask import Flask
 from flask_restful import Api
 from fastapi.responses import HTMLResponse, FileResponse, Depends
-import os, datetime
+# import os, datetime
 
-from app.authentication import get_current_username
-from app.html_content import html_content
-from app.primality_test import primality_test
-from app.invert_colors import invert_colors
+# from app.authentication import get_current_username
+# from app.html_content import html_content
+# from app.primality_test import primality_test
+# from app.invert_colors import invert_colors
 
 
 app = Flask(__name__)
@@ -18,8 +18,8 @@ def start():
 
 @app.get("/prime/{number}", response_class=HTMLResponse)
 def check_number(number):
-    html = html_content(primality_test(number))
-    return HTMLResponse(content=html, status_code=200)
+    # html = html_content(primality_test(number))
+    return number #HTMLResponse(content=html, status_code=200)
 
 
 # @app.get("/picture/{filename}", response_class=FileResponse)
