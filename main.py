@@ -24,18 +24,14 @@ def invert_image():
 def show_time():
     time = datetime.datetime.now(pytz.timezone('Europe/Warsaw')).strftime("%H:%M")
     return f"Godzina logowania: {time}"
-
-# if __name__ == '__main__':
-#     print('Starting app')
-#     app.run(host='0.0.0.0', debug=True, port=8080)
     
-# auth = HTTPBasicAuth()
+auth = HTTPBasicAuth()
 
-# @auth.verify_password
-# def verify_password(username, password):
-#     # if username in users:
-#     #     return check_password_hash(users.get(username), password)
-#     return True
+@auth.verify_password
+def verify_password(username, password):
+    # if username in users:
+    #     return check_password_hash(users.get(username), password)
+    return True
 
 
 # user = 'jane.doe@email.com'
@@ -44,7 +40,7 @@ def show_time():
 # #     user: generate_password_hash(pw)
 # # }
 
-# @app.route('/hello')
-# @auth.login_required
-# def hello_world():
-#     return 'Hello, World!'
+@app.route('/hello')
+@auth.login_required
+def hello_world():
+    return 'Hello, World!'
