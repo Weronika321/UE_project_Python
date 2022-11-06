@@ -1,5 +1,7 @@
-from flask import Flask, request
+from flask import Flask
 from flask_restful import Api
+from markupsafe import escape
+
 
 from app.primality_test import primality_test
 
@@ -7,19 +9,16 @@ from app.primality_test import primality_test
 app = Flask(__name__)
 api = Api(app)
 
-@app.get('/')
+@app.route('/')
 def access_param(): # https://project-ue.herokuapp.com/
     return ''
     
-@app.get('/prime')
-def access_param(): # https://project-ue.herokuapp.com/prime?number=3
-    number = request.args.get('number')
-    if number is None:
-        return f"Nie podano liczby"
-    else:
-        return f'''<h1>{primality_test(number)}</h1>'''
+@app.route('/prime/<number>')
+def access_param(): # https://project-ue.herokuapp.com/prime/3
+    number = escape(number)
+    return f'''<h1>{primality_test(number)}</h1>'''
     
-@app.get('/time')
+@app.route('/time')
 def access_param(): # https://project-ue.herokuapp.com/time
     return f"time"
 
