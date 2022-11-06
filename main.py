@@ -45,7 +45,7 @@ def verify_password(username, password):
 def hello_world():
     return 'Hello, World!'
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login')
 def login():
     # error = None
     # if request.method == 'POST':
