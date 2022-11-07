@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.get('/')
 def start():
-    return ''
+    return ""
     
 @app.route('/prime/<number>')
 def check_number(number):
@@ -16,7 +16,7 @@ def check_number(number):
    
 @app.route('/image')
 def invert_image():
-    return render_template('invert.html')
+    return render_template('invert_image.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -27,5 +27,3 @@ def login():
         else:
             return render_template('time.html')
     return render_template('login.html', error=error)
-
-
