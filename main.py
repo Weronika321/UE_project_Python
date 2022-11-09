@@ -12,8 +12,9 @@ def start():
 
 @app.route('/prime')    
 @app.route('/prime/<number>')
-def check_number(number=""):
-    return render_template('prime.html') #f'{primality_test(escape(number))}'
+def check_number(number=None):
+    result = primality_test(escape(number)) if number is not None else "" 
+    return render_template('prime.html', result=result)
    
 @app.route('/image')
 def invert_image():
