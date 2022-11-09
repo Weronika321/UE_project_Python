@@ -64,7 +64,17 @@ background-color: #8ebf42;
 color: white;
 }
 
+input[type='file'] {
+  color: rgba(0, 0, 0, 0)
+}
+
 a {
   text-decoration: none;
   color: #8ebf42;
+}
+
+.time {
+  color: #8ebf42;
+  font-size: xx-large;
+  font-weight: bold;  
 }
