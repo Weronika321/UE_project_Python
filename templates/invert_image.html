@@ -1,23 +1,25 @@
-<!DOCTYPE html>
-<html>
-  <body>
-    <script src="https://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js">
-    </script>
-    <h1>Upload and Display Image</h1>
-    <canvas id= "canv1" style='filter:invert(1)'></canvas>
+{% extends "base.html" %}
 
-    <p>
-    Filename:
-    <input type="file" multiple="false" accept="image/*" id=finput onchange="upload()">
-    </p>
-    
-    <script>
-    function upload(){
-      var imgcanvas = document.getElementById("canv1");
-      var fileinput = document.getElementById("finput");
-      var image = new SimpleImage(fileinput);
-      image.drawTo(imgcanvas);
-    }
-    </script>
-  </body>
-</html>
+{% block header %}
+<header>Invert colors<hr></header>
+
+{% endblock %}
+
+
+{% block content %}
+<script src="https://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+
+<p>
+    <input type="file" multiple="false" accept="ipg" id=file onchange="upload()" class="custom-file-input">
+</p>
+  
+<canvas id="canvas"></canvas>
+<script>
+  function upload(){
+    var imgcanvas = document.getElementById("canvas");
+    var file = document.getElementById("file");
+    var image = new SimpleImage(file);
+    image.drawTo(imgcanvas);
+  }
+</script>
+{% endblock %}

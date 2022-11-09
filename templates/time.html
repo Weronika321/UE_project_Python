@@ -1,14 +1,18 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Time</title>
-    </head>
-    <body> 
-        <p>Time: <span id="time"></span></p>
+{% extends "base.html" %}
 
-        <script>
-            var date = new Date();
-            document.getElementById("time").innerHTML = date.toLocaleTimeString();
-        </script>
-    </body>
-</html>
+{% block header %}
+<header>Time<hr></header>
+
+{% endblock %}
+
+
+{% block content %}
+<p>
+    <span id="time"></span>
+</p>
+
+<script>
+    var date = new Date();
+    document.getElementById("time").innerHTML = date.toLocaleTimeString();
+</script>
+{% endblock %}

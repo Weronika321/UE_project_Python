@@ -8,11 +8,11 @@ app = Flask(__name__)
 
 @app.get('/')
 def start():
-    return ""
+    return render_template('index.html')
     
 @app.route('/prime/<number>')
 def check_number(number):
-    return f'{primality_test(escape(number))}'
+    return render_template('prime.html') #f'{primality_test(escape(number))}'
    
 @app.route('/image')
 def invert_image():
@@ -27,3 +27,6 @@ def login():
         else:
             return render_template('time.html')
     return render_template('login.html', error=error)
+
+
+app.run(debug=True)
