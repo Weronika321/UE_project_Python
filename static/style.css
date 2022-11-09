@@ -82,3 +82,7 @@ a {
 .error {
   color: crimson;
 }
+
+.prime-class {
+  font-size: large;
+}
