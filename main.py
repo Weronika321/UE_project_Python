@@ -8,10 +8,11 @@ app = Flask(__name__)
 
 @app.get('/')
 def start():
-    return render_template('index.html')
-    
+    return render_template('start.html')
+
+@app.route('/prime')    
 @app.route('/prime/<number>')
-def check_number(number):
+def check_number(number=""):
     return render_template('prime.html') #f'{primality_test(escape(number))}'
    
 @app.route('/image')

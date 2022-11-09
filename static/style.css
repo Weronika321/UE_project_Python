@@ -48,6 +48,7 @@ width: 500px;
 .custom-file-input::-webkit-file-upload-button {
 visibility: hidden;
 }
+
 .custom-file-input::before {
 content: 'Select image';
 display: block;
@@ -61,4 +62,9 @@ cursor: pointer;
 font-size: 10pt;
 background-color: #8ebf42;
 color: white;
+}
+
+a {
+  text-decoration: none;
+  color: #8ebf42;
 }
