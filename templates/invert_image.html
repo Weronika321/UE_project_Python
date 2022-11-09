@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block header %}
+<header>Invert colors<hr></header>
+
+{% endblock %}
+
+
+{% block content %}
+<script src="https://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+
+<p>
+    <input type="file" multiple="false" accept="ipg" id=file onchange="upload()" class="custom-file-input">
+</p>
+  
+<canvas id="canvas"></canvas>
+<script>
+  function upload(){
+    var imgcanvas = document.getElementById("canvas");
+    var file = document.getElementById("file");
+    var image = new SimpleImage(file);
+    image.drawTo(imgcanvas);
+  }
+</script>
+{% endblock %}

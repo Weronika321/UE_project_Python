@@ -1,18 +1,10 @@
-# 
-FROM python:3.9
+FROM python:3.10-alpine
 
-# 
-WORKDIR /code
+WORKDIR /app
 
-# 
-COPY ./requirements.txt /code/requirements.txt
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 
-# 
-RUN pip install --upgrade pip
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+COPY . .
 
-# 
-COPY ./app /code/app
-
-# 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD python main.py

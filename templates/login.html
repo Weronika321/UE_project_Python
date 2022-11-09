@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block header %}
+  <header>Log-in<hr></header>
+{% endblock %}
+
+
+{% block content %}
+  <form class="form" style="display: grid;" action="" method="post">
+    <input class="size" type="text" placeholder="Username" name="username" value="{{ request.form.username }}">
+    <br>
+    <input class="size" type="password" placeholder="Password" name="password" value="{{ request.form.password }}">
+    <br><br>
+    <input class="button" type="submit" value="Login">
+  </form>
+  {% if error %}
+  <br>
+    <strong class="error">Error:</strong> {{ error }}
+  {% endif %}
+{% endblock %}

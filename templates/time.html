@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block header %}
+<header>Time<hr></header>
+
+{% endblock %}
+
+
+{% block content %}
+<p class="time">
+    <span id="time"></span>
+</p>
+
+<script>
+    var date = new Date();
+    document.getElementById("time").innerHTML = date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+</script>
+{% endblock %}

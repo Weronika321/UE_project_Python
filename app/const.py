@@ -1,3 +1,2 @@
-username = b"user"
-password = b"password"
-img_name = "image.jpg"
+username = "user"
+password = "password"
