@@ -1,23 +1,7 @@
 version: "3.9"
 services:
   app:
-    build: .  # image: python:3.10-alpine # python:3.10 - wolniej
-    #command: /bin/sh -c "python main.py" # sleep infinity
-    #working_dir: /app
-    #  volumes:
-     # - .:/app # z komputera :  working_dir
-        # np. home/piotr : app/data
+    build: .
 
     ports:
       - 5000:5000
-
-
-# docker-compose.yaml
-# docker-compose up -d -> uruchomienie kontenerów
-# docker-compose up -d --build -> uruchomienie kontenerów/ przebudowanie kontenerów z przebudowaniem obrazu
-# docker-compose ps -> sprawdzenie staniu kontenerów
-# docker-compose exec app bash -> wejście do kontenera
-# docker-compose exec app /bin/sh -> wejście do kontenera jeśli -alpine
-# docker-compose down -> usuwa dotychczasowy etap
-# cat main.py
-# docker-compose logs -tail 10 -> ostatnie 10
